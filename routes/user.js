@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Cat = require('../model/model');
+//var mongoose = require('mongoose');
+//var Cat = require('../model/model');
 
 exports.list = function(req, res){
 	//console.log(Cat);
@@ -13,8 +13,11 @@ exports.list = function(req, res){
 	//     console.log('meow');
 	//   }
 	// });
-	//const workout = [{reps : 6, rest : 2},{reps : 66, rest : 2},{reps : 666, rest : 2},{reps : 6666, report: true}];
-	const workout = 5;
-	res.json(workout);
+
+	//const jwork = [{reps : 6, rest : 1},{reps : 66, rest : 1},{reps : 666, rest : 1},{reps : 0, test: 1}];
+
+	const jwork = [{reps : 6, rest : 1},{reps : 15, test: true}];
+	const work = 5;
+	res.json(jwork);
   //res.send("respond with a resource");
 };
