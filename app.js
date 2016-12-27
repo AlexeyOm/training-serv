@@ -6,6 +6,7 @@
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
+var login = require('./routes/login');
 var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser')
@@ -44,11 +45,19 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 
 
-app.post('/api/users', jsonParser, function (req, res, next) {
+app.use('/api/users', jsonParser, function (req, res, next) {
   if (!req.body) return res.sendStatus(400)
   next();//res.json(req.body.age);
 });
 app.use('/api/users', user.list);
+
+
+app.use('/api/login', jsonParser, function (req, res, next) {
+  if (!req.body) return res.sendStatus(400)
+  next();//res.json(req.body.age);
+});
+app.use('/api/login', login.index);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
