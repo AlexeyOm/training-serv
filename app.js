@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var login = require('./routes/login');
+var sendMail = require('./routes/sendmail');
 var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser')
@@ -57,6 +58,8 @@ app.use('/api/login', jsonParser, function (req, res, next) {
   next();//res.json(req.body.age);
 });
 app.use('/api/login', login.index);
+
+app.use('/sendmail', sendMail.index);
 
 
 http.createServer(app).listen(app.get('port'), function(){
