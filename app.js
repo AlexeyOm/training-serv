@@ -82,11 +82,26 @@ function loadUser(req, res, next) {
   console.log(req.query);
 
   //TODO тут заменить на логику поиска нужного юзера
-  if (typeof req.query != 'undefined' && req.query.user_id === 'test_user') {
+  if (req.get('token') === 'SoMeToKeN') {
         req.currentUser = req.query.user_id;
         console.log('logged in');
         next();
   } else {
-  		res.jsonp('auth_required');
+      console.log('auth requred' + req.get('token'));
+      res.json('auth_required');
   }
 };
+
+
+// function loadUser(req, res, next) {
+//   console.log(req.query);
+
+//   //TODO тут заменить на логику поиска нужного юзера
+//   if (typeof req.query != 'undefined' && req.query.user_id === 'test_user') {
+//         req.currentUser = req.query.user_id;
+//         console.log('logged in');
+//         next();
+//   } else {
+//   		res.jsonp('auth_required');
+//   }
+// };
