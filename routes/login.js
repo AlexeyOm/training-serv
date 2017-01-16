@@ -5,7 +5,7 @@ exports.index = function(req, res){
 
 	const token = 'SoMeToKeN';
 	if(req.body.login === 'test' && req.body.password === '123') {
-		res.json(token);
+		res.json({token : token, OK : true});
 	}
 	else res.json('fail');
 };
