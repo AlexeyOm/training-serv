@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var login = require('./routes/login');
+var getProgramm = require('./routes/getprogramm');
 var sendMail = require('./routes/sendmail');
 var http = require('http');
 var path = require('path');
@@ -60,7 +61,11 @@ app.use('/api/users', loadUser, jsonParser, function (req, res, next) {
   if (!req.body) return res.sendStatus(400)
   next();//res.json(req.body.age);
 });
+
 app.use('/api/users', user.list);
+
+app.use('/api/getprogramm', loadUser);
+app.use('/api/getprogramm', getProgramm.index);
 
 
 app.use('/api/login', jsonParser, function (req, res, next) {
@@ -83,7 +88,7 @@ function loadUser(req, res, next) {
 
   //TODO тут заменить на логику поиска нужного юзера
   if (req.get('token') === 'SoMeToKeN') {
-        req.currentUser = req.query.user_id;
+        //req.currentUser = req.query.user_id;
         console.log('logged in');
         next();
   } else {
