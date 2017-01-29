@@ -85,9 +85,17 @@ http.createServer(app).listen(app.get('port'), function(){
 
 function loadUser(req, res, next) {
   console.log(req.query);
+  console.log(Date.now());
 
   //TODO тут заменить на логику поиска нужного юзера
   if (req.get('token') === 'SoMeToKeN') {
+        const user = {name : 'Alexey',
+                      day : 1,
+                      test : 7,
+                      lastTraining : Date.parse("January 29, 2017, 14:16:02 GMT")
+        };
+        console.log(user.lastTraining);
+        req.user = user; 
         //req.currentUser = req.query.user_id;
         console.log('logged in');
         next();

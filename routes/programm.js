@@ -1,4 +1,4 @@
-exports programm = [{
+const programm = [{
 	week : 1,
 	day : 1,
 	minResultToStart : 1,
