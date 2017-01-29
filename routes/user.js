@@ -1,26 +1,18 @@
-const programm = require('./programm');
+const program = require('./getprog').program;
 const minTimeBetweenTrainings = 16 * 60 * 60 * 1000; // 16 hours in milliseconds
 
 exports.list = function(req, res){
 
-
-	const jwork = [{reps : 6, rest : 1},{reps : 66, rest : 1},{reps : 666, rest : 1},{reps : 0, test: 1}];
-
-
 	if(Date.now() - req.user.lastTraining < minTimeBetweenTrainings) {
-		const timeToRest = req.user.lastTraining  + minTimeBetweenTrainings - Date.now();
+		const timeToRest = req.user.lastTraining + minTimeBetweenTrainings - Date.now();
 		return res.json({timeToRest});
 	}
 	else {
-
+		 //на основе недели, дня и теста выбираем программу для отправки
+		 return res.json(program[req.user.week][req.user.day][req.user.level].workout);
 	}
 
-	
-
-	//const jwork = [{reps : 6, rest : 1},{reps : 15, test: true}];
-	const work = 5;
 	res.json(jwork);
-  //res.send("respond with a resource");
 };
 
 

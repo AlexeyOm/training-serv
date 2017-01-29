@@ -90,9 +90,10 @@ function loadUser(req, res, next) {
   //TODO тут заменить на логику поиска нужного юзера
   if (req.get('token') === 'SoMeToKeN') {
         const user = {name : 'Alexey',
-                      day : 1,
-                      test : 7,
-                      lastTraining : Date.parse("January 29, 2017, 14:16:02 GMT")
+                      week : 1,
+                      day : 2,
+                      level : 1,
+                      lastTraining : Date.parse("January 26, 2017, 14:16:02 GMT")
         };
         console.log(user.lastTraining);
         req.user = user; 
