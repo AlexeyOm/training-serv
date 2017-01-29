@@ -14,8 +14,8 @@ exports.index = function(req, res){
 	//   }
 	// });
 
-	console.log("i'm in getprogramm");
-	const jwork = [{reps : 6, rest : 1},{reps : 66, rest : 1},{reps : 666, rest : 1},{reps : 0, test: 1}];
+	console.log(req.body.result);
+	const jwork = [{reps : 55, rest : 1},{reps : 66, rest : 1},{reps : 77, rest : 1},{reps : 0, test: 1}];
 
 	//const jwork = [{reps : 6, rest : 1},{reps : 15, test: true}];
 	const work = 5;

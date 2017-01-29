@@ -3,13 +3,25 @@ exports.program = [[[{
 	day : 1,
 	minResultToStart : 1,
 	workout : [
-				{reps : 2, rest : 60},
-	            {reps : 3, rest : 60},
-	            {reps : 2, rest : 60},
-	            {reps : 2, rest: 60},
+				{reps : 2, rest : 1},
+	            {reps : 3, rest : 1},
+	            {reps : 2, rest : 1},
+	            {reps : 2, rest: 1},
 	            {reps : 3, test: 1},
 	          ] 
 	},
+	// {
+	// week : 1,
+	// day : 1,
+	// minResultToStart : 1,
+	// workout : [
+	// 			{reps : 2, rest : 60},
+	//             {reps : 3, rest : 60},
+	//             {reps : 2, rest : 60},
+	//             {reps : 2, rest: 60},
+	//             {reps : 3, test: 1},
+	//           ] 
+	// },
 	{
 	week : 1,
 	day : 1,

@@ -7,8 +7,8 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var login = require('./routes/login');
-var getProgramm = require('./routes/getprogramm');
-var sendMail = require('./routes/sendmail');
+var report = require('./routes/report');
+//var sendMail = require('./routes/sendmail');
 var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser')
@@ -64,8 +64,8 @@ app.use('/api/users', loadUser, jsonParser, function (req, res, next) {
 
 app.use('/api/users', user.list);
 
-app.use('/api/getprogramm', loadUser);
-app.use('/api/getprogramm', getProgramm.index);
+app.use('/api/report', loadUser, jsonParser);
+app.use('/api/report', report.index);
 
 
 app.use('/api/login', jsonParser, function (req, res, next) {
@@ -90,9 +90,9 @@ function loadUser(req, res, next) {
   //TODO тут заменить на логику поиска нужного юзера
   if (req.get('token') === 'SoMeToKeN') {
         const user = {name : 'Alexey',
-                      week : 1,
-                      day : 2,
-                      level : 1,
+                      week : 0,
+                      day : 0,
+                      level : 0,
                       lastTraining : Date.parse("January 26, 2017, 14:16:02 GMT")
         };
         console.log(user.lastTraining);
